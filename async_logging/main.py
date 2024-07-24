@@ -10,7 +10,7 @@ app_queue_handler = logging.handlers.QueueHandler(app_queue)
 
 # Create a listener with handlers
 app_stream_handler = logging.StreamHandler()
-app_file_handler = logging.FileHandler('app.log')
+app_file_handler = logging.handlers.RotatingFileHandler('app_logs.log', backupCount= 10)
 app_listener = logging.handlers.QueueListener(app_queue, app_stream_handler, app_file_handler)
 
 # Configure the logger
